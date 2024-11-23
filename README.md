@@ -1,90 +1,72 @@
-Simple Blog Application
-A web-based blogging application built with Django and Django REST Framework (DRF). This project allows users to create, read, update, and delete blog posts with categorized content.
+# BLOG-PROJECT-BACKEND-API
 
-Features
-CRUD Operations for blog posts.
-Categorization of blog posts.
-Interactive API documentation using DRF.
-Extensible and modular structure for future enhancements.
-Technologies Used
-Backend: Django, Django REST Framework
-Database: SQLite (default, can be configured for PostgreSQL/MySQL)
-Tools: Git, Python, Visual Studio Code
-Installation Guide
-Prerequisites
-Python 3.9+ installed on your system
-Git installed
-Virtual environment (optional but recommended)
-Steps
-Clone the Repository
+## Project Requirements
 
-bash
-Copy code
-git clone https://github.com/kalaiyarasumr/Simple-Blogging-Application.git
-cd Simple-Blogging-Application
-Set Up Virtual Environment (Optional but Recommended)
+1.  Develop a Django backend API to manage a blog system
+2.  Implement CRUD functionality for blog posts
+3.  Use Django Rest Framework to create API endpoints for blog posts
+4.  Use SQL lite to store blog post data
+5.  Implement user authentication and authorization for API endpoints
+6.  Use environment variables for sensitive data (e.g., database credentials)
 
-bash
-Copy code
-python -m venv env
-source env/bin/activate    # On Windows: env\Scripts\activate
-Install Dependencies
+## Functional Requirements
 
-bash
-Copy code
-pip install -r requirements.txt
-Run Migrations
+1.  Retrieve a list of recent blog posts
+2.  Retrieve a detailed view of a blog post
+3.  Create a new blog post
+4.  Update an existing blog post
+5.  Delete an existing blog post
 
-bash
-Copy code
-python manage.py makemigrations
-python manage.py migrate
-Run the Server
+## Non-Functional Requirements
 
-bash
-Copy code
-python manage.py runserver
-Open your browser and navigate to http://127.0.0.1:8000/.
+1.  Ensure the API is secure and protected from unauthorized access
+2.  Optimize API performance for scalability
 
-Usage
-Creating a Blog Post
-Access the /api/posts/ endpoint via POST request.
-Provide JSON data with the following format:
-json
-Copy code
-{
-    "title": "Blog Title",
-    "description": "Short Description",
-    "content": "Detailed Content",
-    "category": "Web-dev"
-}
-Viewing All Posts
-Access the /api/posts/ endpoint via GET request.
-Updating a Post
-Access the /api/posts/<id>/ endpoint via PUT request with updated JSON data.
-Deleting a Post
-Access the /api/posts/<id>/ endpoint via DELETE request.
-API Endpoints
-Endpoint	Method	Description
-/api/posts/	GET	List all blog posts
-/api/posts/	POST	Create a new blog post
-/api/posts/<id>/	GET	Retrieve a specific post
-/api/posts/<id>/	PUT	Update a specific post
-/api/posts/<id>/	DELETE	Delete a specific post
-Contributing
-Contributions are welcome! Please follow these steps:
+## High Level Design
 
-Fork the repository.
-Create a new branch for your feature or bugfix:
-bash
-Copy code
-git checkout -b feature-name
-Commit your changes:
-bash
-Copy code
-git commit -m "Description of your changes"
-Push to your branch:
-bash
-Copy code
-git push origin feature-name
-Create a Pull Request.
+The Django backend API will be designed to store and retrieve blog posts from a PostgreSQL database. The API will have several endpoints to handle CRUD operations for blog posts, which will be secured with authentication and authorization to prevent unauthorized access. The API will be optimized for performance and scalability, and unit and integration tests will be implemented to ensure API responsiveness and reliability. Continuous integration and deployment will be set up with GitHub Actions, and environment variables will be used for sensitive data such as database credentials.
+
+## Learning Objectives
+
+The objectives of this project are to:
+
+1. Learn more about Django Rest Framework
+2. Learn how to build scalable APIs, connect external DB (e.g., SQL lite3).
+3. Learn Django Best Practices aligned with production deployment requirements:
+   1. Pass DB credentials as env secrets.
+   2. Create settings package to manage settings for development, staging and production separately.
+   3. Set up GH Actions for continuous testing and CI/CD in prod.
+
+# Getting Started
+
+First clone the repository from Github and switch to the new directory:
+
+    $ git clone https://github.com/kalaiyarasumr/Simple-Blogging-Application.git
+    $ cd Simple-Blogging-Application
+
+Activate the virtualenv for your project.
+
+## API Endpoints
+
+1. Take a look at 5 recent blogs: `blog/`
+2. Detailed view of a Blog: `blog/<int:pk>`
+3. Create a Blog: `createblog/`
+4. Update a Blog: `updateblog/<int:pk>/`
+5. Delete a Blog: `deleteblog/<int:pk>/`
+
+## Steps for Django setup
+
+Then simply apply the migrations:
+
+    $ python manage.py makemigrations
+    $ python manage.py migrate
+
+Then create a SuperUser:
+
+      $ python manage.py createsuperuser
+
+ Then run the code:
+
+      $ python manage.py runserver
+      
+    
