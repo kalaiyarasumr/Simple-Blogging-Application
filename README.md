@@ -8,6 +8,7 @@
 4.  Use SQL lite to store blog post data
 5.  Implement user authentication and authorization for API endpoints
 6.  Use environment variables for sensitive data (e.g., database credentials)
+7.  JWT-based authentication with bearer-token access.
 
 ## Functional Requirements
 
