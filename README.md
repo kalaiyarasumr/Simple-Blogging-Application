@@ -46,6 +46,10 @@ First clone the repository from Github and switch to the new directory:
 
 Activate the virtualenv for your project.
 
+    $ python -m venv env
+    $ source env/bin/activate    # On Windows: env\Scripts\activate
+
+
 ## API Endpoints
 
 1. Take a look at 5 recent blogs: `blog/`
